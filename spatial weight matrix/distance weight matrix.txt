@@ -1,0 +1,24 @@
+%%% w is unnormalized weight, and W is the row sum to 1 weight matrix with spatial distance weight
+%%% ww is the orginal matrix with the third column the distance between region i and j, with first column i by ascending and second column j by ascending order
+%%% N is the number of regions
+
+
+ww=reshape(www,[N-1,N]);
+
+for i=1:N-1
+for j=1:N
+if i+1>j
+w(i+1,j)=ww(i,j);
+elseif i<j
+w(i,j)=ww(i,j);
+else
+w(i,j)=0;
+end
+end
+end
+
+% normalize the row vectors
+
+for i=1:N;
+W(i,:)=W(i,:)/sum(W(i,:),2);
+end
