@@ -1,5 +1,5 @@
 function [w]=head(N,M)
-%% Generate ‘M ahead and M behind’ matrix spatial weight matrix  unit
+%% Generate M ahead and M behind  matrix spatial weight matrix N unit
 %% N is the number of spatial units
 %% N>2M+1
 
@@ -12,6 +12,6 @@ end
 end
 
 % normalize the row vectors
-for i=1:N;
+for i=1:N
 w(i,:)=d(i,:)/sum(d(i,:),2);
 end
